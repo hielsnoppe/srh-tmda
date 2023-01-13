@@ -14670,14 +14670,341 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology">&#182;</a></h3><ul>
-<li>Event<ul>
-<li>Elementary event</li>
-<li>Composite event</li>
-<li>Complementary event</li>
-</ul>
+<h3 id="Terminology">Terminology<a class="anchor-link" href="#Terminology">&#182;</a></h3><p><strong>Event</strong>: Outcome of a random experiement</p>
+<p><strong>Elementary event</strong>: A single outcome in sample space</p>
+<p><strong>Composite event</strong>: A combination of elementary events</p>
+<p><strong>Complementary event</strong>: The event of another event <strong>not</strong> happening</p>
+<p><strong>Sample space</strong>: Set of all possible outcomes of a random experiment</p>
+<p><strong>Probability</strong>: The chance that an uncertainn event will occur [0.0 .. 1.0]</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Types-of-Probability">Types of Probability<a class="anchor-link" href="#Types-of-Probability">&#182;</a></h3><p>There are three approaches to assess the probability of an uncertain event:</p>
+<ol>
+<li><strong>a priori probability</strong>: the probability of an event is based on prior knowledge of the process involved.</li>
+<li><strong>empirical probability</strong>: the probability of an event is based on observed data.</li>
+<li><strong>subjective probability</strong>: the probability of an event is determined by an individual, based on that person's past experience and personal opinion.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Calculating-Probability">Calculating Probability<a class="anchor-link" href="#Calculating-Probability">&#182;</a></h3><ol>
+<li><p><strong>a priori probability</strong>: probability of occurrence = X / T = number of ways the event can occur / total number of possible outcomes</p>
 </li>
-<li>Sample space</li>
+<li><p><strong>empirical a posteriori probability</strong>: probability of occurrence = number of favorable outcomes observed / total number of outcomes observed</p>
+</li>
+</ol>
+<p>Assumption: All outcomes are equally likely</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Excursion: Combinatorics in Python</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">pairs</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;F1&#39;</span><span class="p">,</span> <span class="s1">&#39;F2&#39;</span><span class="p">,</span> <span class="s1">&#39;F3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;M1&#39;</span><span class="p">,</span> <span class="s1">&#39;M2&#39;</span><span class="p">,</span> <span class="s1">&#39;M3&#39;</span><span class="p">,</span> <span class="s1">&#39;M4&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>[(&#39;F1&#39;, &#39;M1&#39;),
+ (&#39;F1&#39;, &#39;M2&#39;),
+ (&#39;F1&#39;, &#39;M3&#39;),
+ (&#39;F1&#39;, &#39;M4&#39;),
+ (&#39;F2&#39;, &#39;M1&#39;),
+ (&#39;F2&#39;, &#39;M2&#39;),
+ (&#39;F2&#39;, &#39;M3&#39;),
+ (&#39;F2&#39;, &#39;M4&#39;),
+ (&#39;F3&#39;, &#39;M1&#39;),
+ (&#39;F3&#39;, &#39;M2&#39;),
+ (&#39;F3&#39;, &#39;M3&#39;),
+ (&#39;F3&#39;, &#39;M4&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Excursion: Combinatorics in Python</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">comb</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ncomb</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">perm</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">nperm</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">perm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ncomb</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">comb</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nperm</span><span class="p">,</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>10 [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+20 [(0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 3), (2, 4), (3, 0), (3, 1), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3)]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Excursion: Combinatorics in Python</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">cards</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Queen&#39;</span><span class="p">,</span> <span class="s1">&#39;King&#39;</span><span class="p">,</span> <span class="s1">&#39;Ace&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Diamonds&#39;</span><span class="p">,</span> <span class="s1">&#39;Clubs&#39;</span><span class="p">,</span> <span class="s1">&#39;Hearts&#39;</span><span class="p">,</span> <span class="s1">&#39;Spades&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="n">deck</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cards</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;suit&#39;</span><span class="p">])</span>
+
+<span class="n">spades</span> <span class="o">=</span> <span class="n">deck</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">deck</span><span class="p">[</span><span class="s1">&#39;suit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Spades&#39;</span><span class="p">]</span>
+<span class="n">facecards</span> <span class="o">=</span> <span class="n">deck</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">deck</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Queen&#39;</span><span class="p">,</span> <span class="s1">&#39;King&#39;</span><span class="p">,</span> <span class="s1">&#39;Ace&#39;</span><span class="p">])]</span>
+<span class="n">deck</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+      <th>suit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>52</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>13</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>2</td>
+      <td>Diamonds</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>4</td>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Example of empirical classical probability</p>
+<p>Find the probability of selecting a male student taking a statistics class from the population described in the following table:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>taking stats</th>
+  <th>not taking stats</th>
+  <th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>male</td>
+  <td>84</td>
+  <td>145</td>
+  <td>229</td>
+</tr>
+<tr>
+  <td>female</td>
+  <td>76</td>
+  <td>134</td>
+  <td>210</td>
+</tr>
+<tr>
+  <td>total</td>
+  <td>160</td>
+  <td>279</td>
+  <td>439</td>
+</tr>
+</tbody>
+</table>
+<p>P(male taking stats) = # males taking stats / total # of students = 84 / 439 = 0.191</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Examples-of-Sample-Space">Examples of Sample Space<a class="anchor-link" href="#Examples-of-Sample-Space">&#182;</a></h3><p>The sample space is the collection of all possible events</p>
+<ul>
+<li>All six faces of a die</li>
+<li>All 52 cards in a deck of cards</li>
+<li>All possible outcomes in a production, e.g., &quot;good&quot; or &quot;defective&quot;</li>
 </ul>
 
 </div>
@@ -14690,17 +15017,9 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Axioms">Axioms<a class="anchor-link" href="#Axioms">&#182;</a></h3><p>Probability of an event A is a non-negative real number between 0 and 1</p>
-<pre><code>0.0 &lt;= P(A) &lt;= 1.0
-
-</code></pre>
-<p>Given sample space S, the probability of S is 1</p>
-<pre><code>P(S) = 1.0
-
-</code></pre>
-<p>If events A and B are mutually exclusive, the following holds:</p>
-<pre><code>P(A or B) = P(A U B) = P(A) + P(B)
-</code></pre>
+<h3 id="Events-in-Sample-Space">Events in Sample Space<a class="anchor-link" href="#Events-in-Sample-Space">&#182;</a></h3><p><strong>Elementary event</strong>: An outcome from a sample space with <em>one characteristic</em>, e.g., a red card from a deck of cards</p>
+<p><strong>Complement of an event</strong>: All outcomes that are not part of the event, e.g., all cards that are <em>not</em> diamonds</p>
+<p><strong>Composite event</strong>: Involves <em>two or more characteristics</em> simultaneously, e.g., an ace <em>that is also</em> red from a deck of cards</p>
 
 </div>
 </div>
@@ -14712,7 +15031,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Given a family consisting of a mother, a father and two children,
+<h4 id="Exercise:-Elementary-and-Complementary-Events">Exercise: Elementary and Complementary Events<a class="anchor-link" href="#Exercise:-Elementary-and-Complementary-Events">&#182;</a></h4><p>Given a family consisting of a mother, a father and two children,
 we observe the following events:</p>
 <ul>
 <li>M: mother is myopic (near-sighted)</li>
@@ -14724,11 +15043,11 @@ we observe the following events:</p>
 <li>A: At least one person in the family is myopic</li>
 </ul>
 <ol>
-<li>What does D = (M cap F) express?</li>
-<li>What does (M cup F) express?</li>
+<li>What does D = (M and F) express?</li>
+<li>What does (M or F) express?</li>
 <li>Are C1 and C2 mutually exclusive?</li>
-<li>What does (C1 cup C) express?</li>
-<li>What does (not C1 cap C) express?</li>
+<li>What does (C1 or C) express?</li>
+<li>What does (not C1 and C) express?</li>
 <li>Express P with M and F</li>
 <li>Express A with C and P</li>
 <li>What does not M express?</li>
@@ -14747,8 +15066,38 @@ we observe the following events:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">&#182;</a></h3><p>For independent events:</p>
-<p>P(A cap B) = P(A) * P(B)</p>
+<h3 id="Visualizing-Events-in-Sample-Space">Visualizing Events in Sample Space<a class="anchor-link" href="#Visualizing-Events-in-Sample-Space">&#182;</a></h3><p>Contingency Tables:</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Ace</th>
+  <th>Not Ace</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Black</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Red</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Total</td>
+  <td>4</td>
+  <td>48</td>
+  <td>52</td>
+</tr>
+</tbody>
+</table>
+<p>Tree diagram: See whiteboard</p>
 
 </div>
 </div>
@@ -14760,17 +15109,159 @@ we observe the following events:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Two-phase therapy</p>
-<ul>
-<li>Success rate first phase P(A) = 0.7</li>
-<li>Success rate second phase P(B) = 0.8</li>
-</ul>
+<h3 id="Definitions-Simple-vs.-Joint-Probability">Definitions Simple vs. Joint Probability<a class="anchor-link" href="#Definitions-Simple-vs.-Joint-Probability">&#182;</a></h3><p><strong>Simple (Marginal) Probability</strong>: probability of an elementary event, e.g.,</p>
+<pre><code>P(King)
+
+</code></pre>
+<p><strong>Joint Porbability</strong>: probabililty of an occurrence of two or more events, e.g.,</p>
+<pre><code>P(King and Spades)
+</code></pre>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example:-Marginal-(Simple)-Probability">Example: Marginal (Simple) Probability<a class="anchor-link" href="#Example:-Marginal-(Simple)-Probability">&#182;</a></h4><p>P(Ace) = P(Ace and Red) + P(Ace and Black) = 2/52 + 2/52 = 4/52</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Ace</th>
+  <th>Not Ace</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Black</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Red</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Total</td>
+  <td>4</td>
+  <td>48</td>
+  <td>52</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example:-Joint-Probability">Example: Joint Probability<a class="anchor-link" href="#Example:-Joint-Probability">&#182;</a></h4><p>P(Red and Ace) = # red cards that are aces / total # cards = 2 / 52</p>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Ace</th>
+  <th>Not Ace</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Black</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Red</td>
+  <td>2</td>
+  <td>24</td>
+  <td>26</td>
+</tr>
+<tr>
+  <td>Total</td>
+  <td>4</td>
+  <td>48</td>
+  <td>52</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="General-Addition-Rule">General Addition Rule<a class="anchor-link" href="#General-Addition-Rule">&#182;</a></h3><p>P(A or B) = P(A) + P(B) - P(A and B)</p>
+<p>If A and B are mutually exclusive, i.e., P(A and B) = 0, this simplifies to</p>
+<p>P(A or B) = P(A) + P(B)</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="General-Addition-Rule:-Example">General Addition Rule: Example<a class="anchor-link" href="#General-Addition-Rule:-Example">&#182;</a></h3><p>From the population described in the following contingency table, find the probability of selecting</p>
 <ol>
-<li>What is the prob. for success of the whole therapy?</li>
-<li>What is the prob. of success in the first phase and failure in the second phase?</li>
-<li>What is the prob. of failure in both phases?</li>
-<li>What is the prob. for failure of the whole therapy?</li>
+<li>a male student</li>
+<li>a female student</li>
+<li>a female student taking stats</li>
+<li>a male student or a student taking stats</li>
 </ol>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>taking stats</th>
+  <th>not taking stats</th>
+  <th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>male</td>
+  <td>84</td>
+  <td>145</td>
+  <td>229</td>
+</tr>
+<tr>
+  <td>female</td>
+  <td>76</td>
+  <td>134</td>
+  <td>210</td>
+</tr>
+<tr>
+  <td>total</td>
+  <td>160</td>
+  <td>279</td>
+  <td>439</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -14783,10 +15274,10 @@ we observe the following events:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
-<li>P(A cap B) = P(A) * P(B)</li>
-<li>P(A cap not B) = P(A) * (1 - P(B))</li>
-<li>P(not A cap not B) = (1 - P(A)) * (1 - P(B))</li>
-<li>P(not A cup not B) = (1 - P(A)) + (1 - P(B))</li>
+<li>P(male) = 229/439</li>
+<li>P(female) = 210/439</li>
+<li>P(female and stats) = 76/439</li>
+<li>P(male or stats) = P(male) + P(stats) - P(male and stats) = 229/439 + 160/439 - 84/439 = 305/439</li>
 </ol>
 
 </div>
@@ -14799,12 +15290,244 @@ we observe the following events:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Birthday paradoxon</p>
+<h3 id="Calculating-Probabilities">Calculating Probabilities<a class="anchor-link" href="#Calculating-Probabilities">&#182;</a></h3><p>In a box there are six green and four red balls</p>
+<p>What is the probability of choosing a green ball?</p>
+<pre><code>P(green) = 6/10
+</code></pre>
 
 </div>
 </div>
 </div>
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>What is the probability of choosing a green ball in the second attempt (without replacing the first ball)?</p>
+<p>It depends on the first outcome!</p>
+<pre><code>P(green 2nd | green 1st) = 5/9
+P(green 2nd | red 1st) = 6/9
+</code></pre>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Excursion:-Sampling-in-Python">Excursion: Sampling in Python<a class="anchor-link" href="#Excursion:-Sampling-in-Python">&#182;</a></h3>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">&#182;</a></h3><p>Conditional probability is the probability of one event, given that another event has occurred:</p>
+<pre><code>P(A | B) = P(A and B) / P(B)
+
+P(B | A) = P(A and B) / P(A)
+
+</code></pre>
+<p>Where P(A and B) is the <em>joint probability</em> of A and B and P(A) and P(B) are the <em>marginal probabilities</em> of A and B respectively.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Conditional-Probability:-Example">Conditional Probability: Example<a class="anchor-link" href="#Conditional-Probability:-Example">&#182;</a></h4><p>From the population described in the following contingency table, find the probability of selecting</p>
+<ol>
+<li>from all male students one who is taking stats</li>
+<li>from all stats students one who is female</li>
+</ol>
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>taking stats</th>
+  <th>not taking stats</th>
+  <th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>male</td>
+  <td>84</td>
+  <td>145</td>
+  <td>229</td>
+</tr>
+<tr>
+  <td>female</td>
+  <td>76</td>
+  <td>134</td>
+  <td>210</td>
+</tr>
+<tr>
+  <td>total</td>
+  <td>160</td>
+  <td>279</td>
+  <td>439</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ol>
+<li>P(stats | male) = P(stats and male) / P(male) = 84/229</li>
+<li>P(female | stats) = P(female and stats) / P(stats) = 76/160</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Statistical-Independence">Statistical Independence<a class="anchor-link" href="#Statistical-Independence">&#182;</a></h3><p>Two events are independent iff:</p>
+<pre><code>P(A | B) = P(A)
+
+P(B | A) = P(B)
+
+</code></pre>
+<p>i.e., the probabililty of one event is not affected by the other</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">&#182;</a></h3><p>The joint probability of A and B is calculated like this:</p>
+<pre><code>P(A and B) = P(A | B) * P(B)
+
+</code></pre>
+<p>For independent events where P(A | B) = P(A) this simplifies to</p>
+<pre><code>P(A and B) = P(A) * P(B)
+</code></pre>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Birthday-Paradox">Birthday Paradox<a class="anchor-link" href="#Birthday-Paradox">&#182;</a></h4><p>In a group of N people, what is the probability of at least two people sharing their birthday?</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14864,47 +15587,63 @@ class="
 
 </div>
 
-</div></section></section><section ><section >
+</div></div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Addition-Rule">Addition Rule<a class="anchor-link" href="#Addition-Rule">&#182;</a></h3>
+<h3 id="Screening-Tests">Screening Tests<a class="anchor-link" href="#Screening-Tests">&#182;</a></h3><p>Screening tests are characterized by their sensitivity and specificity:</p>
+<p><strong>Sensitivity s</strong>: Probability of detecting a condition when it is actually present</p>
+<pre><code>s = P(T | C)
+
+</code></pre>
+<p><strong>Specificity z</strong>: Probability of not detecting a condition when it is actually not present</p>
+<pre><code>z = P(not T | not C)
+
+</code></pre>
+<p><strong>Prevalence p</strong>: Proportion of people with a certain condition to the total number of people</p>
+<pre><code>p = P(C)
+</code></pre>
+
 </div>
 </div>
 </div>
-</div></section></section><section ><section >
+</div></section><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">&#182;</a></h3>
+<h3 id="Screening-Tests-(cont.)">Screening Tests (cont.)<a class="anchor-link" href="#Screening-Tests-(cont.)">&#182;</a></h3><p><strong>Positive Predictive Value</strong>: Probability of the condition being true, given that the test is positive</p>
+<pre><code>PPV = P(C | T)
+
+</code></pre>
+<p><strong>False Positive</strong>: Probability of the condition being false, given that the test is positive</p>
+<pre><code>FP = P(not C | T)
+
+</code></pre>
+<p><strong>Negative Predictive Value</strong>: Probability of the condition being false, given that the test is negative</p>
+<pre><code>NPV = P(not C | not T)
+
+</code></pre>
+<p><strong>False Negative</strong>: Probability of the condition being true, given that the test is negative</p>
+<pre><code>FN = P(C | not T)
+</code></pre>
+
 </div>
 </div>
 </div>
-</div></section></section><section ><section >
+</div></section><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Tree-Diagram">Tree Diagram<a class="anchor-link" href="#Tree-Diagram">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Contingency-Table">Contingency Table<a class="anchor-link" href="#Contingency-Table">&#182;</a></h3><table>
+<h4 id="Screening-Tests:-Example">Screening Tests: Example<a class="anchor-link" href="#Screening-Tests:-Example">&#182;</a></h4><table>
 <thead>
 <tr>
   <th></th>
@@ -14934,24 +15673,31 @@ class="
 </tr>
 </tbody>
 </table>
+<pre><code>PPV = P(C | T+) = 180 / (180 + 1470) = 0.109
+FP = P(not C | T+) = 1470 / 1650 = 0.891
+NPV = P(not C | T-) = 8330 / (20 + 8330) = 0.9976
+FN = P(C | T-) = 20 / 8350 = 0.0024
+</code></pre>
 
 </div>
 </div>
 </div>
-</div></section></section><section ><section >
+</div></section><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Screening-Tests">Screening Tests<a class="anchor-link" href="#Screening-Tests">&#182;</a></h3><p>Sensitivity s: Probability of detecting a condition when it is actually present</p>
-<p>Specificity z: Probability of not detecting a condition when it is actually not present</p>
+<h4 id="Screening-Tests:-Exercise">Screening Tests: Exercise<a class="anchor-link" href="#Screening-Tests:-Exercise">&#182;</a></h4><p>A screening test for PSA (Prostate-Specific Antigen) should be applied to a population of men.
+The test has a sensitivity <code>s = 80%</code> and a specificity of <code>z = 65%</code>.
+The prevalence of prostate cancer in this group is <code>p = 3%</code>.</p>
+<p>Calculate the positive and negative predictive values.</p>
 
 </div>
 </div>
 </div>
-</div></section></section><section ><section >
+</div><div class="fragment" >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14964,113 +15710,39 @@ class="
   <th></th>
   <th>C</th>
   <th>not C</th>
-  <th>Sum</th>
+  <th>Total</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>T+</td>
-  <td>180</td>
-  <td>1470</td>
-  <td>1650</td>
+  <td>T</td>
+  <td>0.8 * 0.03 = 0.024</td>
+  <td>0.35 * 0.97 = 0.3395</td>
+  <td>0.3635</td>
 </tr>
 <tr>
-  <td>T-</td>
-  <td>20</td>
-  <td>8330</td>
-  <td>8350</td>
+  <td>not T</td>
+  <td>0.2 * 0.03 = 0.006</td>
+  <td>0.65 * 0.97 = 0.6305</td>
+  <td>0.6365</td>
 </tr>
 <tr>
-  <td>Sum</td>
-  <td>200</td>
-  <td>9800</td>
-  <td>10000</td>
+  <td>Total</td>
+  <td>0.03</td>
+  <td>0.97</td>
+  <td>1.0</td>
 </tr>
 </tbody>
 </table>
-<p>PPV = P(C | T+) = 180 / (180 + 1470) = 0.109
-FP = P(not C | T+) = 1470 / 1650 = 0.891
-NPV = P(not C | T-) = 8330 / (20 + 8330) = 0.9976
-FN = P(C | T-) = 20 / 8350 = 0.0024</p>
+<pre><code>PPV = P(C | T) = 0.024 / (0.024 + 0.3395) = 0.066
+
+NPV = P(not C | not T) = 0.6305 / (0.006 + 0.6305) = 0.991
+</code></pre>
 
 </div>
 </div>
 </div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Sensitivity = 80%
-Specificity = 65%
-Prevalence = 3%</p>
-<p>PPV, NPV?</p>
-
-</div>
-</div>
-</div>
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Bayes'-Theorem">Bayes' Theorem<a class="anchor-link" href="#Bayes'-Theorem">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="n">comb</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ncomb</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">perm</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">nperm</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">perm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">ncomb</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">comb</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nperm</span><span class="p">,</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>10 [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
-20 [(0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 3), (2, 4), (3, 0), (3, 1), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3)]
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></section></section>
+</div></div></section></section>
 </div>
 </div>
 </body>
