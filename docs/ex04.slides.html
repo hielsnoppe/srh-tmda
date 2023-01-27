@@ -14658,19 +14658,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Probability">Probability<a class="anchor-link" href="#Probability">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1)-System">1) System<a class="anchor-link" href="#1)-System">&#182;</a></h2><p>Consider the given system of connected components. Components 1 and 2 are connected in parallel, so that subsystem works if either I or II works. Components III and IV are connected in series, that subsystem works if both III and IV work. suppose all components work independently of one another and the probability for each component to work is 0.8 calculate P(system works).</p>
-
+<h1 id="Theoretical-Probability-Distributions">Theoretical Probability Distributions<a class="anchor-link" href="#Theoretical-Probability-Distributions">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14679,10 +14667,11 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 
      </div>
@@ -14697,9 +14686,12 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2)-Blood-Phenotypes">2) Blood Phenotypes<a class="anchor-link" href="#2)-Blood-Phenotypes">&#182;</a></h2><p>The proportions of blood phenotypes in the U.S. population are as follows:
-    A: 40%		B: 11%		 AB: 4%	 O: 45%
-Assuming that the phenotypes of two randomly selected individuals are independent of one another, What is the probability that both phenotypes are O?</p>
+<h2 id="1)-Flaws">1) Flaws<a class="anchor-link" href="#1)-Flaws">&#182;</a></h2><p>A company knows from experience that 10% of its products have flaws and must be classified as &quot;seconds&quot;.</p>
+<ol>
+<li>Among six randomly selected products, how likely is it that only one is a second?</li>
+<li>Among six randomly selected products, what is the probability that at least two are seconds?</li>
+<li>If the products are examined one by one, what is the probability that at most five must be selected to find four that are not seconds?</li>
+</ol>
 
 </div>
 </div>
@@ -14709,10 +14701,12 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.45</span> <span class="o">*</span> <span class="mf">0.45</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">sample</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;proportion&#39;</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14728,13 +14722,28 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.2025</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8c02897ac0&gt;</pre>
+</div>
+
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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"
+class="
+"
+>
 </div>
 
 </div>
@@ -14743,18 +14752,6 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3)-Pumps">3) Pumps<a class="anchor-link" href="#3)-Pumps">&#182;</a></h2><p>Two pumps connected in parallel fail independently of one another on any given day. The probability that only the older pump will fail is .10, and the probability that only the newer pump will fail is .05. What is the probability that the pumping system will fail on any given day (which happens if both pumps fail)?</p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14763,7 +14760,8 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.1</span> <span class="o">*</span> <span class="mf">0.05</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># probability mass function</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14785,7 +14783,7 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.005000000000000001</pre>
+<pre>0.35429399999999994</pre>
 </div>
 
 </div>
@@ -14794,31 +14792,16 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="4)-Impurity">4) Impurity<a class="anchor-link" href="#4)-Impurity">&#182;</a></h2><p>A chemical engineer is interested in determining whether a certain trace impurity is present in a product. The prior probability of the impurity being present is 0.40. A method has a probability of 0.8 of detecting the impurity if it is present. The probability of not detecting the impurity if it is absent is 0.9. What is the posterior probability that the impurity is present?</p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">P_present</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="n">P_true_pos</span> <span class="o">=</span> <span class="mf">0.8</span>
-<span class="n">P_true_neg</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="c1">#P_present * P_true_pos</span>
-<span class="n">P_present</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_true_neg</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cumulative density function: 1 or 2 seconds</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14834,13 +14817,53 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.039999999999999994</pre>
+<pre>0.11426500000000006</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cumulative density function</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.91854</pre>
 </div>
 
 </div>
@@ -14856,8 +14879,637 @@ Assuming that the phenotypes of two randomly selected individuals are independen
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="5)-Disease">5) Disease<a class="anchor-link" href="#5)-Disease">&#182;</a></h2><p>One percent of all individuals in a certain population are carriers of a particular disease (event D). A diagnostic test for this disease has a 90% detection rate for carriers (event +|D) and a 5% detection rate for non carriers (event +|D̅). Calculate the following probabilities and interpret each result.
-P(D|+)  ;  P(D|-)  ;  P(D̅|+)  ;  P(D̅|-)</p>
+<h2 id="2)-FDA-Report-on-Pesticides-in-Food">2) FDA Report on Pesticides in Food<a class="anchor-link" href="#2)-FDA-Report-on-Pesticides-in-Food">&#182;</a></h2><p>Every quarter, the U.S. Food and Drug Administration (FDA) produces a report called the Total Diet Study.
+The FDA’s report covers a variety of food items, each of which is analyzed for potentially harmful chemical compounds.
+A recent Total Diet Study reported that no pesticides at all were found in 60% of the domestically produced food samples (FDA Pesticide Program: Residue Monitoring, 2001).
+Consider a random sample of 100 food items analyzed for the presence of pesticides.</p>
+<ol>
+<li>Compute the expected value and the standard deviation for the random variable X, the number of food items found that showed no trace of pesticide.</li>
+<li>Based on a sample of 100 food items, is it likely you would observe less than half without any traces of pesticide! Calculate the probability.</li>
+<li>Repeat (b) using a normal distribution approximation.</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># expected value:</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="mf">0.6</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>60.0</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="c1"># standard deviation</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="n">std</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>4.898979485566356</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.016761686503161465</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">49.5</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.016044366989115627</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="3)-Power-Supply-Units">3) Power Supply Units<a class="anchor-link" href="#3)-Power-Supply-Units">&#182;</a></h2><p>An electronics manufacturer claims that at most 5% of its power supply units need service during the warranty period.
+To investigate this claim, technicians at a testing laboratory purchase 20 units and subject each one to accelerated testing to simulate use during the warranty period.</p>
+<p>What is the expected value?</p>
+<p>Under the condition that the claim of the manufacturer is true, determine the probabilities of observing x = 0, x = 1, ..., x = 6 units among the 20 sampled that need repair.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ex</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="mf">0.05</span>
+<span class="n">ex</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>1.0</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[0.3584859224085419,
+ 0.37735360253530753,
+ 0.18867680126765404,
+ 0.05958214776873281,
+ 0.013327585685111266,
+ 0.002244646010124003,
+ 0.000295348159226843]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="4)-Material-Anomalies">4) Material Anomalies<a class="anchor-link" href="#4)-Material-Anomalies">&#182;</a></h2><p>Let X be the number of material anomalies occurring in a particular region of an aircraft gas-turbine disk. The article “Methodology for Probabilistic Life Prediction of Multiple Anomaly Materials” (Amer. Inst. of Aeronautics and Astronautics J., 2006: 787–793) proposes a Poisson distribution for X. Suppose that expected value E(X) = 4.</p>
+<p>a. Compute both P(X ≤ 4) and P(X &lt; 4).
+b. Compute P(4 ≤ X ≤ 8).
+c. Compute P(X ≥ 8).
+d. What is the probability that the number of anomalies exceeds its mean value by no more than one standard deviation?</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.6288369351798734</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.43347012036670896</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.5451664451453069</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.05113361579284725</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># = E(X)</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="c1"># 2</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mean</span> <span class="o">+</span> <span class="n">std</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">std</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.7977478271537555</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="5)-Airline-fatalities">5) Airline fatalities<a class="anchor-link" href="#5)-Airline-fatalities">&#182;</a></h2><p>US airlines average about 1.2 fatalities per month (Statistical Abstract of the United States: 2006). Assume the probability distribution for X, the number of fatalities per month, can be approximated by a Poisson probability distribution.</p>
+<p>a. What is the probability that no fatalities will occur during any given month?
+b. What is the probability that one fatality will occur during a month?
+c. Find E(X) and the standard deviation of X.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.30119421191220214</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[53]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.36143305429464256</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ex</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+<span class="n">std</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>1.0954451150103321</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="6)-Vinyl-chloride-emissions">6) Vinyl chloride emissions<a class="anchor-link" href="#6)-Vinyl-chloride-emissions">&#182;</a></h2><p>The U.S. Environmental Protection Agency (EPA) limits the amount of vinyl chloride in plant air emissions to no more than 10 parts per million. Suppose the mean emission of vinyl chloride for a particular plant is 4 parts per million. Assume that the number of parts per million of vinyl chloride in air samples X, follows a Poisson probability distribution.</p>
+<p>a. What is the standard deviation of X for the plant?
+b. Is it likely that a sample of air from the plant would yield a value of X that would exceed the EPA limit? Explain.
+c. Discuss conditions that would make the Poisson assumption plausible.</p>
 
 </div>
 </div>
@@ -14869,7 +15521,52 @@ P(D|+)  ;  P(D|-)  ;  P(D̅|+)  ;  P(D̅|-)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="6)-Emission-Inspection">6) Emission Inspection<a class="anchor-link" href="#6)-Emission-Inspection">&#182;</a></h2><p>Seventy percent of all vehicles examined at a certain emissions inspection station pass the inspection. Assuming that successive vehicles pass or fail independently of one another, calculate the following probabilities: a. P(all of the next three vehicles inspected pass) b. P(at least one of the next three inspected fails) c. P(exactly one of the next three inspected passes) d. P(at most one of the next three vehicles inspected passes) e. Given that at least one of the next three vehicles passes inspection, what is the probability that all three pass (a conditional probability)?</p>
+<h2 id="7)-Concentration-of-Influent">7) Concentration of Influent<a class="anchor-link" href="#7)-Concentration-of-Influent">&#182;</a></h2><p>The article “Reliability of Domestic-Waste Biofilm Reactors” (J. of Envir. Engr., 1995: 785–790) suggests that substrate concentration (mg/cm³) of influent to a reactor is normally distributed with μ = 0.30 and σ = 0.06.
+    a. What is the probability that the concentration exceeds 0.25?
+    b. What is the probability that the concentration is at most 0.20?
+    c. How would you characterize the largest 5% of all concentration values?</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="8)-Steel">8) Steel<a class="anchor-link" href="#8)-Steel">&#182;</a></h2><p>The article “Monte Carlo Simulation—Tool for Better Understanding of LRFD” (J. of Structural Engr., 1993: 1586–1599) suggests that yield strength (ksi) for A36 grade steel is normally distributed with μ = 43 and σ = 4.5.
+    a. What is the probability that yield strength is at most 40? Greater than 50?
+    b. What yield strength value separates the strongest 75% from the others?
+    c. Find the symmetrical interval around mean that contains 95% of the cases.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="9)-Resistors">9) Resistors<a class="anchor-link" href="#9)-Resistors">&#182;</a></h2><p>The distribution of resistance for resistors of a certain type is known to be normal, with 10% of all resistors having a resistance exceeding 10.256 ohms and 5% having a resistance smaller than 9.671 ohms. What are the mean value and standard deviation of the resistance distribution?</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="10)-Rockwell-Hardness">10) Rockwell Hardness<a class="anchor-link" href="#10)-Rockwell-Hardness">&#182;</a></h2><p>The Rockwell hardness of a metal is determined by impressing a hardened point into the surface of the metal and then measuring the depth of penetration of the point. Suppose the Rockwell hardness of a particular alloy is normally distributed with mean 70 and standard deviation 3. (Rockwell hardness is measured on a continuous scale.)
+    a. If a specimen is acceptable only if its hardness is between 67 and 75, what is the probability that a randomly chosen specimen has an acceptable hardness?
+    b. If the acceptable range of hardness is (70 - c, 70 + c), for what value of c would 95% of all specimens have acceptable hardness?
+    c. If the acceptable range is as in part (a) and the hardness of each of ten randomly selected specimens is independently determined, what is the expected number of acceptable specimens among the ten?</p>
 
 </div>
 </div>

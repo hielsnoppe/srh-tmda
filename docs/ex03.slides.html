@@ -14847,7 +14847,7 @@ What is the posterior probability that the impurity is present?</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="5)-Disease">5) Disease<a class="anchor-link" href="#5)-Disease">&#182;</a></h2><p>One percent of all individuals in a certain population are carriers of a particular disease (event D).
-A diagnostic test for this disease has a 90% detection rate for carriers (event +|D) and a 5% detection rate for non carriers (event +|D̅).
+A diagnostic test for this disease has a <code>90%</code> detection rate for carriers (event +|D) and a <code>5%</code> detection rate for non carriers (event +|D̅).
 Calculate the following probabilities and interpret each result.</p>
 <pre><code>P(D|+)  ;  P(D|-)  ;  P(D̅|+)  ;  P(D̅|-)  
 </code></pre>
@@ -14866,32 +14866,84 @@ Calculate the following probabilities and interpret each result.</p>
 <thead>
 <tr>
   <th></th>
-  <th>C</th>
-  <th>not C</th>
+  <th>D</th>
+  <th>not D</th>
   <th>Total</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>T</td>
-  <td>0.8 * 0.03 = 0.024</td>
-  <td>0.35 * 0.97 = 0.3395</td>
-  <td>0.3635</td>
+  <td>+</td>
+  <td>0.009</td>
+  <td>0.0495</td>
+  <td>0.0585</td>
 </tr>
 <tr>
-  <td>not T</td>
-  <td>0.2 * 0.03 = 0.006</td>
-  <td>0.65 * 0.97 = 0.6305</td>
-  <td>0.6365</td>
+  <td>-</td>
+  <td></td>
+  <td></td>
+  <td></td>
 </tr>
 <tr>
   <td>Total</td>
-  <td>0.03</td>
-  <td>0.97</td>
+  <td>0.01</td>
+  <td>0.99</td>
   <td>1.0</td>
 </tr>
 </tbody>
 </table>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>D</th>
+  <th>not D</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>+</td>
+  <td>0.009</td>
+  <td>0.0495</td>
+  <td>0.0585</td>
+</tr>
+<tr>
+  <td>-</td>
+  <td>0.001</td>
+  <td>0.9405</td>
+  <td>0.9415</td>
+</tr>
+<tr>
+  <td>Total</td>
+  <td>0.01</td>
+  <td>0.99</td>
+  <td>1.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <pre><code>P(D|+) = 0.009/0.0585 = 0.1538462
 P(D|-) = 0.001/0.9415 =  0.001062135
 P(D̅|+) = 0.0495/0.0585 = 0.8461538
