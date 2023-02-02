@@ -14669,7 +14669,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Utility-functions">Utility functions<a class="anchor-link" href="#Utility-functions">&#182;</a></h2>
+<h2 id="Imports-and-Utility-Function">Imports and Utility Function<a class="anchor-link" href="#Imports-and-Utility-Function">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14678,25 +14678,23 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[213]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pyreadr</span> <span class="kn">import</span> <span class="n">read_r</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats</span> <span class="kn">import</span> <span class="n">proportion</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportion_confint</span>
 
-<span class="k">def</span> <span class="nf">t_interval</span><span class="p">(</span><span class="n">confidence</span><span class="p">,</span> <span class="n">series</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">t_confint</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">size</span>
-    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="n">confidence</span><span class="p">,</span>
-                            <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="c1"># confidence</span>
+                            <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># degrees of freedom = sample size minus One</span>
                             <span class="n">loc</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-                            <span class="n">scale</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                            <span class="n">scale</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># std. deviation by square root of sample size</span>
                             <span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">prop_interval</span><span class="p">(</span><span class="n">confidence</span><span class="p">,</span> <span class="n">success</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">proportion</span><span class="o">.</span><span class="n">proportion_confint</span><span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">confidence</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14717,47 +14715,20 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[214]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lifetime</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">lifetime</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[214]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([4.99342831, 3.7234714 , 5.29537708, 7.04605971, 3.53169325,
-       3.53172609, 7.15842563, 5.53486946, 3.06105123, 5.08512009,
-       3.07316461, 3.06854049, 4.48392454, 0.17343951, 0.55016433,
-       2.87542494, 1.97433776, 4.62849467, 2.18395185, 1.1753926 ])</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -14775,15 +14746,15 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
-</div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[215]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="n">lifetime</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">lifetime</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14799,7 +14770,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[215]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
@@ -14814,15 +14785,15 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[216]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">99</span><span class="p">,</span> <span class="n">lifetime</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">lifetime</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">99</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14838,7 +14809,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[216]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -14853,7 +14824,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section ><section >
+</div></div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14871,7 +14842,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[217]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="mf">54.70833</span><span class="p">,</span> <span class="mf">5.230672</span>
@@ -14892,7 +14863,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[217]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -14930,10 +14901,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[218]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">voltage</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14949,7 +14920,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[218]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
 
 
@@ -14969,7 +14940,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[236]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">voltage</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -14997,7 +14968,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[236]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -15029,10 +15000,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[220]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">356</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">proportion_confint</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="mi">356</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15048,7 +15019,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[220]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -15085,12 +15056,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[221]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyreadr</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pyreadr</span><span class="o">.</span><span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex07.33.rda&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex07.33.rda&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ex07.33&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15104,7 +15073,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[222]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -15129,13 +15098,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[222]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f56a26b5af0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f85065d4a90&gt;</pre>
 </div>
 
 </div>
@@ -15164,7 +15133,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[223]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -15207,10 +15176,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[224]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15226,7 +15195,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[224]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -15259,11 +15228,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[225]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="mf">24.3</span><span class="p">,</span> <span class="mf">4.1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">concentration</span> <span class="o">=</span> <span class="p">((</span><span class="n">mean</span> <span class="o">+</span> <span class="n">std</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
@@ -15292,10 +15261,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[226]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="n">concentration</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">concentration</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15311,13 +15280,13 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[226]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(23.90732371430202, 27.75267628569797)</pre>
+<pre>(22.859273389585667, 26.700726610414335)</pre>
 </div>
 
 </div>
@@ -15331,11 +15300,12 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[227]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO</span>
-<span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="n">concentration</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ci</span> <span class="o">=</span> <span class="n">t_confint</span><span class="p">(</span><span class="n">concentration</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ci</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">ci</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ci</span>
 </pre></div>
 
      </div>
@@ -15351,13 +15321,13 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[227]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(24.61033339560935, 27.04966660439064)</pre>
+<pre>(-inf, 25.99842981073456)</pre>
 </div>
 
 </div>
@@ -15399,10 +15369,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[228]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="mi">1262</span><span class="p">,</span> <span class="mi">2253</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">proportion_confint</span><span class="p">(</span><span class="mi">1262</span><span class="p">,</span> <span class="mi">2253</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15418,7 +15388,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[228]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -15438,10 +15408,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[229]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prop_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">90</span><span class="p">,</span> <span class="mi">1262</span><span class="p">,</span> <span class="mi">2253</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">proportion_confint</span><span class="p">(</span><span class="mi">1262</span><span class="p">,</span> <span class="mi">2253</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15457,7 +15427,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[229]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
@@ -15477,11 +15447,12 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[230]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">1262</span><span class="o">/</span><span class="mi">2253</span>
-<span class="mf">1.96</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="o">.</span><span class="mi">02</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mf">1.96</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="o">.</span><span class="mi">02</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">n</span>
 </pre></div>
 
      </div>
@@ -15497,13 +15468,54 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[230]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>2366.2617162420315</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">samplesize_confint_proportion</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">samplesize_confint_proportion</span><span class="p">(</span><span class="n">proportion</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">half_length</span><span class="o">=.</span><span class="mi">02</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">n</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2366.174755812364</pre>
 </div>
 
 </div>
@@ -15519,7 +15531,10 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="7)-Asbestos">7) Asbestos<a class="anchor-link" href="#7)-Asbestos">&#182;</a></h2><p>Chronic exposure to asbestos fiber is a well-known health hazard. The article “The Acute Effects of Chrysotile Asbestos Exposure on Lung Function” (Environ. Research, 1978: 360–372) reports results of a study based on a sample of construction workers who had been exposed to asbestos over a prolonged period. Among the data given in the article were the following (ordered) values of pulmonary compliance (cm³/cm H2O) for each of 16 subjects 8 months after the exposure period (pulmonary compliance is a measure of lung elasticity, or how effectively the lungs are able to inhale and exhale). (Data: ex07.56)</p>
+<h2 id="7)-Asbestos">7) Asbestos<a class="anchor-link" href="#7)-Asbestos">&#182;</a></h2><p>Chronic exposure to asbestos fiber is a well-known health hazard.
+The article “The Acute Effects of Chrysotile Asbestos Exposure on Lung Function” (Environ. Research, 1978: 360–372) reports results of a study based on a sample of construction workers who had been exposed to asbestos over a prolonged period.
+Among the data given in the article were the following (ordered) values of pulmonary compliance (cm³/cm H2O) for each of 16 subjects 8 months after the exposure period (pulmonary compliance is a measure of lung elasticity,
+or how effectively the lungs are able to inhale and exhale). (Data: ex07.56)</p>
 <ol>
 <li>Is it plausible that the population distribution is normal?</li>
 <li>Compute a 95% CI for the true average pulmonary compliance after such exposure.</li>
@@ -15534,12 +15549,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[231]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyreadr</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">pyreadr</span><span class="o">.</span><span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex07.56.rda&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex07.56.rda&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ex07.56&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15553,7 +15566,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[232]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -15596,10 +15609,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[233]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_interval</span><span class="p">(</span><span class="o">.</span><span class="mi">95</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_confint</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="o">-.</span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15615,7 +15628,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[233]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
@@ -15635,7 +15648,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[234]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -15656,7 +15669,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[234]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
