@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>ex07 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>session7 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14658,7 +14658,21 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Test-of-Hypotheses-Based-on-Two-Samples">Test of Hypotheses Based on Two Samples<a class="anchor-link" href="#Test-of-Hypotheses-Based-on-Two-Samples">&#182;</a></h1>
+<h1 id="Tools-and-Methods-of-Data-Analysis">Tools and Methods of Data Analysis<a class="anchor-link" href="#Tools-and-Methods-of-Data-Analysis">&#182;</a></h1><h2 id="Session-7">Session 7<a class="anchor-link" href="#Session-7">&#182;</a></h2><p>Niels Hoppe &lt;<a href="mailto:niels.hoppe.extern@srh.de">niels.hoppe.extern@srh.de</a>&gt;</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:-Stopping-Distance">Example: Stopping Distance<a class="anchor-link" href="#Example:-Stopping-Distance">&#182;</a></h3><p>Suppose $\mu_x$ and $\mu_y$ are true mean stopping distances at 50 mph for cars of a certain type equipped with two different types of braking systems.</p>
+<p>Do both systems have the same mean stopping distance? Use significance level α = .01</p>
+
 </div>
 </div>
 </div>
@@ -14667,17 +14681,82 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyreadr</span> <span class="kn">import</span> <span class="n">read_r</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportions_ztest</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">114</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">111</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">133</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">110</span><span class="p">])</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>$H_0: \mu_x = \mu_y$</li>
+<li>$H_1: \mu_x \neq \mu_y$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="T-Test-with-Two-Independent-Samples">T-Test with Two Independent Samples<a class="anchor-link" href="#T-Test-with-Two-Independent-Samples">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.07663322278868127</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></section></section><section ><section >
@@ -14687,8 +14766,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1)-Cement-Mortar">1) Cement Mortar<a class="anchor-link" href="#1)-Cement-Mortar">&#182;</a></h2><p>An experiment to compare the tension bond strength of polymer latex modified mortar (Portland cement mortar to which polymer latex emulsions have been added during mixing) to that of unmodified mortar resulted in</p>
-<p>Generate similar data by:</p>
+<h3 id="Example:-Test-Scores">Example: Test Scores<a class="anchor-link" href="#Example:-Test-Scores">&#182;</a></h3><p>Test scores for 20 students before and after a training program:</p>
 
 </div>
 </div>
@@ -14698,11 +14776,11 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[78]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">modified</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.6</span><span class="p">)</span>
-<span class="n">unmodified</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">16.8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">38</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">74</span><span class="p">])</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">61</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -14717,398 +14795,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Assume that the bond strength distributions are both normal.</p>
-<ol>
-<li>Test $H_0: \mu_{mod} \leq \mu_{unmod}$ versus $H_1: \mu_{mod} &gt; \mu_{unmod}$ at a significance level of .01.</li>
-<li>Interpret your test result and the possible test error type.</li>
-</ol>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">modified</span><span class="p">,</span> <span class="n">unmodified</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>2.857952949200716e-07</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="2)-Food-Contamination">2) Food Contamination<a class="anchor-link" href="#2)-Food-Contamination">&#182;</a></h2><p>Recent incidents of food contamination have caused great concern among consumers.
-The article: “How Safe Is That Chicken?” (Consumer Reports, Jan. 2010: 19–23) reported that 35 of 80 randomly selected Perdue brand broilers tested positively for either campylobacter or salmonella (or both),
-the leading bacterial causes of food-borne disease,
-whereas 66 of 80 Tyson brand broilers tested positive.</p>
-<p>Does it appear that the true proportion of non-contaminated Perdue broilers differs from that for the Tyson brand?
-Carry out a test of hypotheses using a significance level .01.</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">66</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>3.7810285696151036e-07</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="3)-Bearings.">3) Bearings.<a class="anchor-link" href="#3)-Bearings.">&#182;</a></h2><p>The derailment of a freight train due to the catastrophic failure of a traction motor armature bearing provided the impetus for a study reported in the article “Locomotive Traction Motor Armature Bearing Life Study” (Lubrication Engr., Aug. 1997: 12–19).
-A sample of 17 high-mileage traction motors was selected,
-and the amount of cone penetration (mm/10) was determined both for the pinion bearing and for the commutator armature bearing, resulting in the given data (Data: ex09.72)</p>
-<p>Calculate a 95% confidence interval estimate of the population mean difference between penetration for the commutator armature bearing and penetration for the pinion bearing.</p>
-<p>Does the population mean penetration differ for the two types of bearings? (α = .05)</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex09.72.rda&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ex09.72&#39;</span><span class="p">]</span>
-
-<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Commutator&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pinion&#39;</span><span class="p">])</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.681567462952498</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="4)-Ultimate-Strength-of-Alloys">4) Ultimate Strength of Alloys<a class="anchor-link" href="#4)-Ultimate-Strength-of-Alloys">&#182;</a></h2><p>Two different types of alloy, A and B, have been used to manufacture experimental specimens of a small tension link to be used in a certain engineering application.
-The ultimate strength (kilopounds per square inch, ksi) of each specimen was determined,
-and the results are summarized in the following frequency distribution.</p>
-<table>
-<thead>
-<tr>
-  <th></th>
-  <th>A</th>
-  <th>B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>&lt; 34</td>
-  <td>18</td>
-  <td>13</td>
-</tr>
-<tr>
-  <td>&gt;= 34</td>
-  <td>22</td>
-  <td>29</td>
-</tr>
-<tr>
-  <td>Sum</td>
-  <td>40</td>
-  <td>42</td>
-</tr>
-</tbody>
-</table>
-<p>Compute a 95% CI for the difference between the true proportions of all specimens of alloys A and B that have an ultimate strength of at least 34 ksi.</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">])</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.18976020932219406</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="5)-Sweetgum-Lumber">5) Sweetgum Lumber<a class="anchor-link" href="#5)-Sweetgum-Lumber">&#182;</a></h2><p>The article “Development of Novel Industrial Laminated Planks from Sweetgum Lumber” (J. of Bridge Engr., 2008: 64–66) described the manufacturing and testing of composite beams designed to add value to low-grade sweetgum lumber.
-The data set contains the modulus of elasticity obtained 1 minute after loading in a certain configuration and also 4 weeks after loading for the same lumber specimens. (Data: ex09.44)</p>
-<p>Calculate and interpret a 95%-confidence interval for the true average difference between 1-minute modulus and 4-week modulus. Is the difference significant? (α = .05)</p>
-
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="5)-Sweetgum-Lumber-(cont.)">5) Sweetgum Lumber (cont.)<a class="anchor-link" href="#5)-Sweetgum-Lumber-(cont.)">&#182;</a></h2><ul>
-<li>$H_0: \mu_{1m} = \mu_{4w}$</li>
-<li>$H_1: \mu_{1m} \neq \mu_{4e}$</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_r</span><span class="p">(</span><span class="s1">&#39;../data/devore7/ex09.44.rda&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ex09.44&#39;</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;X1min&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;X4weeks&#39;</span><span class="p">]</span>
-
-<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">],</span> <span class="n">popmean</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1.8801208096001095e-12</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;X1min&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;X4weeks&#39;</span><span class="p">])</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1.8801208096001095e-12</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="6)-Survey-Response-Rate">6) Survey Response Rate<a class="anchor-link" href="#6)-Survey-Response-Rate">&#182;</a></h2><p>It is thought that the front cover and the nature of the first question on mail surveys influence the response rate.
-The article “The Impact of Cover Design and First Questions on Response Rates for a Mail Survey of Skydivers” (Leisure Sciences, 1991: 67–76) tested this theory by experimenting with different cover designs.
-One cover was plain; the other used a picture of a skydiver.
-The researchers speculated that the return rate would be lower for the plain cover.</p>
-<table>
-<thead>
-<tr>
-  <th>Cover</th>
-  <th>Number Sent</th>
-  <th>Number Returned</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Plain</td>
-  <td>207</td>
-  <td>104</td>
-</tr>
-<tr>
-  <td>Skydiver</td>
-  <td>213</td>
-  <td>109</td>
-</tr>
-</tbody>
-</table>
-<p>Does this data support the researchers’ hypothesis? Test the relevant hypotheses using α =.5.</p>
+<p>Does the training improve in average the students scores? Use α = 5%</p>
 
 </div>
 </div>
@@ -15121,22 +14808,33 @@ The researchers speculated that the return rate would be lower for the plain cov
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>$H_0: p_{plain} \geq p_{skydiver}$</li>
-<li>$H_1: p_{plain} &lt; p_{skydiver}$</li>
+<li>$H_0: \mu_1 \leq \mu_0$</li>
+<li>$H_1: \mu_1 &gt; \mu_0$</li>
 </ul>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="(Paired)-T-Test-with-Two-Related-Samples">(Paired) T-Test with Two Related Samples<a class="anchor-link" href="#(Paired)-T-Test-with-Two-Related-Samples">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[79]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">104</span><span class="p">,</span> <span class="mi">109</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">207</span><span class="p">,</span> <span class="mi">213</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">before</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 
@@ -15153,13 +14851,13 @@ The researchers speculated that the return rate would be lower for the plain cov
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[79]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.42424846993179954</pre>
+<pre>0.025676121095572903</pre>
 </div>
 
 </div>
@@ -15168,33 +14866,43 @@ The researchers speculated that the return rate would be lower for the plain cov
 
 </div>
 
-</div></div></section></section><section ><section >
+</div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="7)-Arsenic-in-Water">7) Arsenic in Water<a class="anchor-link" href="#7)-Arsenic-in-Water">&#182;</a></h2><p>Arsenic is a known carcinogen and poison.
-The standard laboratory procedures for measuring arsenic concentration (μg/L) in water are expensive.
-A new relatively quick and inexpensive field laboratory method has been introduced.
-See the article “Evaluation of a New Field Measurement Method for Arsenic in Drinking Water Samples,” J. of Envir. Engr., 2008: 382–388).
-Suppose the arsenic concentration was measured with two methods.</p>
-<p>Generate exercise data by</p>
-
+<h3 id="Excursion:-Confidence-Interval-for-Difference-of-Means">Excursion: Confidence Interval for Difference of Means<a class="anchor-link" href="#Excursion:-Confidence-Interval-for-Difference-of-Means">&#182;</a></h3><p>Confidence interval:</p>
+$$ \bar{x}_1 - \bar{x}_2 \pm Z \cdot s $$<p>where $Z$ is the critical value and $s$ is the standard error:</p>
+$$ s = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}} $$
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">method1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">19.70</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
-<span class="n">method2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">19.70</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">std_err</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">critical_value_t</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ttest_ind_confint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># center of CI</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># mean sample size</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">std_err</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># standard error of the mean difference</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">critical_value_t</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">half_length</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">half_length</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">half_length</span><span class="p">)</span>
+
+<span class="n">ci</span> <span class="o">=</span> <span class="n">ttest_ind_confint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ci</span>
 </pre></div>
 
      </div>
@@ -15202,128 +14910,44 @@ Suppose the arsenic concentration was measured with two methods.</p>
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(-13.402367156297982, 1.2595100134408437)</pre>
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Is there a significant difference between the means of arsenic concentration measured by method1 and method2? (α = .05)</li>
-<li>Is this an appropriate way of comparing the two methods?</li>
-</ol>
 
 </div>
+
 </div>
+
 </div>
-</div>
+
+</div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:-Production-Plants">Example: Production Plants<a class="anchor-link" href="#Example:-Production-Plants">&#182;</a></h3><p>Defective Items produced on two different production lines:</p>
 <ul>
-<li>$H_0: \mu_2 = \mu_1$</li>
-<li>$H_1: \mu_2 \neq \mu_1$</li>
+<li>A: 12 defectives in a batch of 200</li>
 </ul>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">method1</span><span class="p">,</span> <span class="n">method2</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.25303775400729944</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">method1</span> <span class="o">-</span> <span class="n">method2</span><span class="p">),</span> <span class="n">popmean</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1.6124372798582065e-07</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="8)-Effect-of-Temperature">8) Effect of Temperature<a class="anchor-link" href="#8)-Effect-of-Temperature">&#182;</a></h2><p>An experiment to determine the effects of temperature on the survival of insect eggs was described in the article “Development Rates and a Temperature-Dependent Model of Pales Weevil” (Environ. Entomology, 1987: 956–962).
-At 11°C, 73 of 91 eggs survived to the next stage of development.
-At 30°C, 102 of 110 eggs survived.</p>
-<p>Do the results of this experiment suggest that the survival rate (proportion surviving in the population) is higher for 30°C temperature?
-Calculate the P-value and use it to test the appropriate hypotheses. (α = .05)</p>
+$$12/200 = 0.06 = 6\%$$<ul>
+<li>B: 24 defectives in a batch of 300</li>
+</ul>
+$$24/300 = 0.08 = 8\%$$<p>Does B produce more defectives? Use $\alpha = 5\%$.</p>
 
 </div>
 </div>
@@ -15336,22 +14960,36 @@ Calculate the P-value and use it to test the appropriate hypotheses. (α = .05)<
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>$H_0: p_{11} \geq p_{30}$</li>
-<li>$H_1: p_{11} &lt; p_{30}$</li>
+<li>$H_0: \pi_B \leq \pi_A$</li>
+<li>$H_1: \pi_B &gt; \pi_A$</li>
 </ul>
 
 </div>
 </div>
 </div>
-</div></div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Proportions-Test-with-Two-Samples">Proportions Test with Two Samples<a class="anchor-link" href="#Proportions-Test-with-Two-Samples">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">102</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">91</span><span class="p">,</span> <span class="mi">110</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportions_ztest</span>
+
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+                               <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;larger&#39;</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 
@@ -15368,13 +15006,13 @@ Calculate the P-value and use it to test the appropriate hypotheses. (α = .05)<
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[81]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.004267428251156687</pre>
+<pre>0.1983361310972807</pre>
 </div>
 
 </div>
@@ -15383,7 +15021,107 @@ Calculate the P-value and use it to test the appropriate hypotheses. (α = .05)<
 
 </div>
 
-</div></div></section></section>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Excursion:-Confidence-Interval-for-Difference-of-Proportions">Excursion: Confidence Interval for Difference of Proportions<a class="anchor-link" href="#Excursion:-Confidence-Interval-for-Difference-of-Proportions">&#182;</a></h3><p>Confidence interval</p>
+$$ \hat{p_1} - \hat{p_2} \pm Z \cdot s $$<p>Where $Z$ is the critical value and the $s$ is the standard error:</p>
+$$ s = \sqrt{\frac{\hat{p_1} (1-\hat{p_1})}{n_1} + \frac{\hat{p_2} (1-\hat{p_2})}{n_2}}$$
+</div>
+</div>
+</div>
+</div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">proportions_std_err</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">):</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">critical_value_norm</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">proportions_ztest_confint</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span><span class="p">):</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">proportions_std_err</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">critical_value_norm</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">half_length</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">half_length</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">half_length</span><span class="p">)</span>
+
+<span class="n">ci</span> <span class="o">=</span> <span class="n">proportions_ztest_confint</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ci</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(-0.02500810243477687, 0.06500810243477688)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Recap:-Hypothesis-Testing">Recap: Hypothesis Testing<a class="anchor-link" href="#Recap:-Hypothesis-Testing">&#182;</a></h3><ol>
+<li>Answer the following questions, then select appropriate test:</li>
+</ol>
+<ul>
+<li>One or two samples?</li>
+<li>Mean or proportion?</li>
+<li>If mean: independent or related populations?</li>
+<li>Test for increase, decrease or any change?</li>
+</ul>
+<ol start="2">
+<li><p>If one sample, find reference value.</p>
+</li>
+<li><p>Execute test to find p-value and decide:</p>
+</li>
+</ol>
+<ul>
+<li>reject $H_0$ when $pval &lt; \alpha$</li>
+<li>do not reject $H_0$ when $pval \geq \alpha$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section>
 </div>
 </div>
 </body>
