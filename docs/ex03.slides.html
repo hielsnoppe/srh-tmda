@@ -14684,11 +14684,7 @@ Suppose all components work independently of one another and the probability for
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<pre><code>P(I or II) = (0.8 + 0.8 - 0.8 * 0.8) = 0.96
-P(III and IV) = (0.8 * 0.8) = 0.64
-P((I or II) or (III and IV)) = 0.96 + 0.64 - 0.96 * 0.64 = 0.9856
-</code></pre>
-
+$$P(I \lor II) = (0.8 + 0.8 - 0.8 \cdot 0.8) = 0.96$$$$P(III \land IV) = (0.8 \cdot 0.8) = 0.64$$$$P((I \lor II) \lor (III \land IV)) = 0.96 + 0.64 - 0.96 \cdot 0.64 = 0.9856$$
 </div>
 </div>
 </div>
@@ -14700,8 +14696,24 @@ P((I or II) or (III and IV)) = 0.96 + 0.64 - 0.96 * 0.64 = 0.9856
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="2)-Blood-Phenotypes">2) Blood Phenotypes<a class="anchor-link" href="#2)-Blood-Phenotypes">&#182;</a></h2><p>The proportions of blood phenotypes in the U.S. population are as follows:</p>
-<pre><code>A: 40%		B: 11%		 AB: 4%	 O: 45%
-</code></pre>
+<table>
+<thead>
+<tr>
+  <th>A</th>
+  <th>B</th>
+  <th>AB</th>
+  <th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>40%</td>
+  <td>11%</td>
+  <td>4%</td>
+  <td>45%</td>
+</tr>
+</tbody>
+</table>
 <p>Assuming that the phenotypes of two randomly selected individuals are independent of one another,
 what is the probability that both phenotypes are O?</p>
 
@@ -14713,7 +14725,7 @@ what is the probability that both phenotypes are O?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.45</span> <span class="o">*</span> <span class="mf">0.45</span>
@@ -14732,7 +14744,7 @@ what is the probability that both phenotypes are O?</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
 
 
@@ -14769,10 +14781,7 @@ What is the probability that the pumping system will fail on any given day (whic
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<pre><code>P(not A and not B) = P(not A) * P(not B)
-                   = 0.1 * 0.05 = 0.005
-
-1 - P(A or B) = 1 - ( P(A) + P(B) - P(A) * P(B) )
+$$P(\neg A \land \neg B) = P(\neg A) \cdot P(\neg B) = 0.1 \cdot 0.05 = 0.005$$<pre><code>1 - P(A or B) = 1 - ( P(A) + P(B) - P(A) * P(B) )
               = 1 - (0.9 + 0.95 - 0.9 * 0.95)
               = 0.005
 </code></pre>
@@ -14801,7 +14810,7 @@ What is the posterior probability that the impurity is present?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="c1"># probability</span>
@@ -14824,7 +14833,7 @@ What is the posterior probability that the impurity is present?</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
 
 
@@ -14973,12 +14982,12 @@ Assuming that successive vehicles pass or fail independently of one another, cal
 </div>
 </div>
 </div>
-</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_pass</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">**</span> <span class="mi">3</span>
@@ -14991,29 +15000,6 @@ Assuming that successive vehicles pass or fail independently of one another, cal
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.3525179856115107</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></div></section></section>

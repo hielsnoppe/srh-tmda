@@ -15408,12 +15408,7 @@ P(green 2nd | red 1st) = 6/9
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">&#182;</a></h3><p>Conditional probability is the probability of one event, given that another event has occurred:</p>
-<pre><code>P(A | B) = P(A and B) / P(B)
-
-P(B | A) = P(A and B) / P(A)
-
-</code></pre>
-<p>Where P(A and B) is the <em>joint probability</em> of A and B and P(A) and P(B) are the <em>marginal probabilities</em> of A and B respectively.</p>
+$$P(A | B) = P(A \land B) / P(B)$$$$P(B | A) = P(A \land B) / P(A)$$<p>Where P(A and B) is the <em>joint probability</em> of A and B and P(A) and P(B) are the <em>marginal probabilities</em> of A and B respectively.</p>
 
 </div>
 </div>
@@ -15487,12 +15482,7 @@ P(B | A) = P(A and B) / P(A)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Statistical-Independence">Statistical Independence<a class="anchor-link" href="#Statistical-Independence">&#182;</a></h3><p>Two events are independent iff:</p>
-<pre><code>P(A | B) = P(A)
-
-P(B | A) = P(B)
-
-</code></pre>
-<p>i.e., the probabililty of one event is not affected by the other</p>
+$$P(A | B) = P(A)$$$$P(B | A) = P(B)$$<p>i.e., the probabililty of one event is not affected by the other</p>
 
 </div>
 </div>
@@ -15505,13 +15495,8 @@ P(B | A) = P(B)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">&#182;</a></h3><p>The joint probability of A and B is calculated like this:</p>
-<pre><code>P(A and B) = P(A | B) * P(B)
-
-</code></pre>
-<p>For independent events where P(A | B) = P(A) this simplifies to</p>
-<pre><code>P(A and B) = P(A) * P(B)
-</code></pre>
-
+$$P(A \land B) = P(A | B) \cdot P(B)$$<p>For independent events where P(A | B) = P(A) this simplifies to</p>
+$$P(A \land B) = P(A) \cdot P(B)$$
 </div>
 </div>
 </div>
@@ -15596,17 +15581,9 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Screening-Tests">Screening Tests<a class="anchor-link" href="#Screening-Tests">&#182;</a></h3><p>Screening tests are characterized by their sensitivity and specificity:</p>
 <p><strong>Sensitivity s</strong>: Probability of detecting a condition when it is actually present</p>
-<pre><code>s = P(T | C)
-
-</code></pre>
-<p><strong>Specificity z</strong>: Probability of not detecting a condition when it is actually not present</p>
-<pre><code>z = P(not T | not C)
-
-</code></pre>
-<p><strong>Prevalence p</strong>: Proportion of people with a certain condition to the total number of people</p>
-<pre><code>p = P(C)
-</code></pre>
-
+$$s = P(T | C)$$<p><strong>Specificity z</strong>: Probability of not detecting a condition when it is actually not present</p>
+$$z = P(\neg T | \neg C)$$<p><strong>Prevalence p</strong>: Proportion of people with a certain condition to the total number of people</p>
+$$p = P(C)$$
 </div>
 </div>
 </div>
@@ -15618,21 +15595,10 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Screening-Tests-(cont.)">Screening Tests (cont.)<a class="anchor-link" href="#Screening-Tests-(cont.)">&#182;</a></h3><p><strong>Positive Predictive Value</strong>: Probability of the condition being true, given that the test is positive</p>
-<pre><code>PPV = P(C | T)
-
-</code></pre>
-<p><strong>False Positive</strong>: Probability of the condition being false, given that the test is positive</p>
-<pre><code>FP = P(not C | T)
-
-</code></pre>
-<p><strong>Negative Predictive Value</strong>: Probability of the condition being false, given that the test is negative</p>
-<pre><code>NPV = P(not C | not T)
-
-</code></pre>
-<p><strong>False Negative</strong>: Probability of the condition being true, given that the test is negative</p>
-<pre><code>FN = P(C | not T)
-</code></pre>
-
+$$PPV = P(C | T)$$<p><strong>False Positive</strong>: Probability of the condition being false, given that the test is positive</p>
+$$FP = P(\neg C | T)$$<p><strong>Negative Predictive Value</strong>: Probability of the condition being false, given that the test is negative</p>
+$$NPV = P(\neg C | \neg T)$$<p><strong>False Negative</strong>: Probability of the condition being true, given that the test is negative</p>
+$$FN = P(C | \neg T)$$
 </div>
 </div>
 </div>
