@@ -14691,9 +14691,11 @@ div.jp-OutputPrompt {
 <span class="k">def</span> <span class="nf">t_confint</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">size</span>
     <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="c1"># confidence</span>
-                            <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># degrees of freedom = sample size minus One</span>
+                            <span class="c1"># degrees of freedom = sample size minus One</span>
+                            <span class="n">df</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
                             <span class="n">loc</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-                            <span class="n">scale</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># std. deviation by square root of sample size</span>
+                            <span class="c1"># std. deviation by square root of sample size</span>
+                            <span class="n">scale</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
                             <span class="p">)</span>
 </pre></div>
 
@@ -14846,7 +14848,8 @@ div.jp-OutputPrompt {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="mf">54.70833</span><span class="p">,</span> <span class="mf">5.230672</span>
-<span class="n">voltage</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
+                        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span>
 <span class="n">voltage</span>
 </pre></div>
 
@@ -14889,8 +14892,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="2)-Insulation-Liquids-(cont.)">2) Insulation Liquids (cont.)<a class="anchor-link" href="#2)-Insulation-Liquids-(cont.)">&#182;</a></h2><ol>
-<li>Calculate and interpret a 95% CI for true average breakdown voltage μ.</li>
-<li>What sample size would be appropriate for the 95% CI to have a width of 2 kV (so that μ is estimated to within 1 kV with 95% confidence)? Use the standard deviation s of the dataset &quot;voltage&quot; and t0.975 ≈ 2 as estimates.</li>
+<li>Calculate and interpret a 95% CI for true average breakdown voltage $\mu$.</li>
+<li>What sample size would be appropriate for the 95% CI to have a width of 2 kV (so that $\mu$ is estimated to within 1 kV with 95% confidence)? Use the standard deviation s of the dataset &quot;voltage&quot; and $t_{0.975} ≈ 2$ as estimates.</li>
 </ol>
 
 </div>
@@ -15083,6 +15086,7 @@ div.jp-OutputPrompt {
 <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_box</span><span class="p">,</span> <span class="n">ax_hist</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_ratios&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">85</span><span class="p">)})</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_box</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_hist</span><span class="p">)</span>
+<span class="kc">None</span> <span class="c1"># &lt;-- suppress output in Jupyter notebook</span>
 </pre></div>
 
      </div>
@@ -15096,18 +15100,6 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f72e3736fd0&gt;</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>

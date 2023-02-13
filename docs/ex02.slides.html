@@ -14690,7 +14690,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14739,7 +14739,7 @@ What would you report as a representative, or typical, value of October snow cov
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyreadr</span>
@@ -14762,7 +14762,7 @@ What would you report as a representative, or typical, value of October snow cov
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
@@ -14837,10 +14837,10 @@ What would you report as a representative, or typical, value of October snow cov
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">();</span> <span class="kc">None</span> <span class="c1"># &lt;-- suppress output in Jupyter notebook</span>
 </pre></div>
 
      </div>
@@ -14854,18 +14854,6 @@ What would you report as a representative, or typical, value of October snow cov
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f7c6a217d00&gt;</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -14891,7 +14879,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
@@ -14905,7 +14893,7 @@ class="
 <span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cov</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
 <span class="n">iqr</span> <span class="o">=</span> <span class="n">calc_iqr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">tmean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">p30</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">iqr</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">tmean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">p30</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">iqr</span>
 </pre></div>
 
      </div>
@@ -14919,15 +14907,24 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>12.010000000000002 12.01 11.35 9.76 19.278777777777776 4.3907605010724255 0.3655920483823834 4.600000000000001
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(12.010000000000002,
+ 12.01,
+ 11.35,
+ 9.76,
+ 19.278777777777776,
+ 4.3907605010724255,
+ 0.3655920483823834,
+ 4.600000000000001)</pre>
 </div>
+
 </div>
 
 </div>
@@ -14951,7 +14948,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyreadr</span>
@@ -14974,7 +14971,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -15049,10 +15046,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">();</span> <span class="kc">None</span> <span class="c1"># &lt;-- suppress output in Jupyter notebook</span>
 </pre></div>
 
      </div>
@@ -15066,18 +15063,6 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f7c68128be0&gt;</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -15103,7 +15088,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
@@ -15117,7 +15102,7 @@ class="
 <span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cov</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
 <span class="n">iqr</span> <span class="o">=</span> <span class="n">calc_iqr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">tmean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">p30</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">iqr</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">tmean</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">p30</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">iqr</span>
 </pre></div>
 
      </div>
@@ -15131,15 +15116,24 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>370.6923076923077 370.375 369.5 361.0 593.3415384615386 24.358602966129617 0.06571110988995331 32.25
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(370.6923076923077,
+ 370.375,
+ 369.5,
+ 361.0,
+ 593.3415384615386,
+ 24.358602966129617,
+ 0.06571110988995331,
+ 32.25)</pre>
 </div>
+
 </div>
 
 </div>
@@ -15163,7 +15157,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyreadr</span>
@@ -15193,7 +15187,7 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -15208,12 +15202,23 @@ class="
 
 </div>
 
-</div></div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="4)-Crankcacse-Lubricants-(cont.)">4) Crankcacse Lubricants (cont.)<a class="anchor-link" href="#4)-Crankcacse-Lubricants-(cont.)">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">std</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -15226,8 +15231,6 @@ class="
 <span class="n">q1</span><span class="p">,</span> <span class="n">q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
 <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
 <span class="n">iqr</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15243,16 +15246,54 @@ class="
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f7c51c97c70&gt;</pre>
+<pre>48.5</pre>
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="4)-Crankcacse-Lubricants-(cont.)">4) Crankcacse Lubricants (cont.)<a class="anchor-link" href="#4)-Crankcacse-Lubricants-(cont.)">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">();</span> <span class="kc">None</span> <span class="c1"># &lt;-- suppress output in Jupyter notebook</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>

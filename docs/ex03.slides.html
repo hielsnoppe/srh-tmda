@@ -14715,7 +14715,7 @@ $$P(I \lor II) = (0.8 + 0.8 - 0.8 \cdot 0.8) = 0.96$$$$P(III \land IV) = (0.8 \c
 </tbody>
 </table>
 <p>Assuming that the phenotypes of two randomly selected individuals are independent of one another,
-what is the probability that both phenotypes are O?</p>
+what is the probability that both phenotypes are 0?</p>
 
 </div>
 </div>
@@ -14725,7 +14725,7 @@ what is the probability that both phenotypes are O?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.45</span> <span class="o">*</span> <span class="mf">0.45</span>
@@ -14744,7 +14744,7 @@ what is the probability that both phenotypes are O?</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
@@ -14810,7 +14810,7 @@ What is the posterior probability that the impurity is present?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="c1"># probability</span>
@@ -14833,7 +14833,7 @@ What is the posterior probability that the impurity is present?</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
@@ -14855,57 +14855,14 @@ What is the posterior probability that the impurity is present?</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="5)-Disease">5) Disease<a class="anchor-link" href="#5)-Disease">&#182;</a></h2><p>One percent of all individuals in a certain population are carriers of a particular disease (event D).
-A diagnostic test for this disease has a <code>90%</code> detection rate for carriers (event +|D) and a <code>5%</code> detection rate for non carriers (event +|D̅).
+<h2 id="5)-Disease">5) Disease<a class="anchor-link" href="#5)-Disease">&#182;</a></h2><p>One percent of all individuals in a certain population are carriers of a particular disease $(event D)$.
+A diagnostic test for this disease has a $90\%$ detection rate for carriers $(event +|D)$ and a $5\%$ detection rate for non carriers $(event +|\bar{D})$.
 Calculate the following probabilities and interpret each result.</p>
-<pre><code>P(D|+)  ;  P(D|-)  ;  P(D̅|+)  ;  P(D̅|-)  
-</code></pre>
-
+$$ P(D|+); P(D|-); P(\bar{D}|+); P(\bar{D}|-) $$
 </div>
 </div>
 </div>
 </div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<table>
-<thead>
-<tr>
-  <th></th>
-  <th>D</th>
-  <th>not D</th>
-  <th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>+</td>
-  <td>0.009</td>
-  <td>0.0495</td>
-  <td>0.0585</td>
-</tr>
-<tr>
-  <td>-</td>
-  <td></td>
-  <td></td>
-  <td></td>
-</tr>
-<tr>
-  <td>Total</td>
-  <td>0.01</td>
-  <td>0.99</td>
-  <td>1.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14987,7 +14944,7 @@ Assuming that successive vehicles pass or fail independently of one another, cal
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_pass</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">**</span> <span class="mi">3</span>
