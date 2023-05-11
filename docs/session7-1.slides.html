@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>session7 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>session7-1 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14658,7 +14658,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Tools-and-Methods-of-Data-Analysis">Tools and Methods of Data Analysis<a class="anchor-link" href="#Tools-and-Methods-of-Data-Analysis">&#182;</a></h1><h2 id="Session-7">Session 7<a class="anchor-link" href="#Session-7">&#182;</a></h2><p>Niels Hoppe &lt;<a href="mailto:niels.hoppe.extern@srh.de">niels.hoppe.extern@srh.de</a>&gt;</p>
+<h1 id="Tools-and-Methods-of-Data-Analysis">Tools and Methods of Data Analysis<a class="anchor-link" href="#Tools-and-Methods-of-Data-Analysis">&#182;</a></h1><h2 id="Session-7---Part-1">Session 7 - Part 1<a class="anchor-link" href="#Session-7---Part-1">&#182;</a></h2><p>Niels Hoppe &lt;<a href="mailto:niels.hoppe.extern@srh.de">niels.hoppe.extern@srh.de</a>&gt;</p>
 
 </div>
 </div>
@@ -14670,8 +14670,149 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Example:-Stopping-Distance">Example: Stopping Distance<a class="anchor-link" href="#Example:-Stopping-Distance">&#182;</a></h3><p>Suppose $\mu_x$ and $\mu_y$ are true mean stopping distances at 50 mph for cars of a certain type equipped with two different types of braking systems.</p>
-<p>Do both systems have the same mean stopping distance? Use significance level α = .01</p>
+<h3 id="The-Idea-of-Hypothesis-Testing">The Idea of Hypothesis Testing<a class="anchor-link" href="#The-Idea-of-Hypothesis-Testing">&#182;</a></h3><p>Does the data support a <strong>hypothesis</strong> or not?</p>
+<p>A hypothesis is <strong>accepted</strong> or <strong>rejected</strong> based on the test result.</p>
+<p>Tests give <strong>no absolute certainty</strong>, but only a <strong>probability of error</strong>.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="The-Idea-of-Hypothesis-Testing-(cont.)">The Idea of Hypothesis Testing (cont.)<a class="anchor-link" href="#The-Idea-of-Hypothesis-Testing-(cont.)">&#182;</a></h3><ol>
+<li>What is the question (hypothesis)?</li>
+<li>Which test is applicable?</li>
+<li>How to perform the test?</li>
+<li>How to interpret the result?</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-is-the-question-(hypothesis)?">1. What is the question (hypothesis)?<a class="anchor-link" href="#1.-What-is-the-question-(hypothesis)?">&#182;</a></h3><p>A hypothesis is a claim (assumption) about a <strong>population parameter</strong>, e.g.,</p>
+<p>Assumption about the <strong>population mean</strong> $\mu$:</p>
+<p>&quot;The average income in a country has fallen in the past 20 years.&quot;</p>
+<p>Assumption about the <strong>population proportion</strong> $\pi$:</p>
+<p>&quot;The proportion of voters for a particular party has increased since the last election.&quot;</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-is-the-question-(hypothesis)?">1. What is the question (hypothesis)?<a class="anchor-link" href="#1.-What-is-the-question-(hypothesis)?">&#182;</a></h3><p>There are three kinds of hypotheses we learn to test for:</p>
+<ul>
+<li>the parameter has <strong>increased</strong> wrt. a reference value</li>
+<li>the parameter has <strong>decreased</strong> wrt. a reference value</li>
+<li>the parameter has <strong>changed</strong> (increased or decreased) wrt. a reference value</li>
+</ul>
+<p>There are always two hypothesis:</p>
+<ul>
+<li>The <strong>null-hypothesis</strong> ($H_0$) expresses the <strong>absence</strong> of the assumed effect.</li>
+<li>The <strong>alternative hypothesis</strong> ($H_1$) expresses the <strong>presence</strong> of the assumed effect.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-is-the-question-(hypothesis)?">1. What is the question (hypothesis)?<a class="anchor-link" href="#1.-What-is-the-question-(hypothesis)?">&#182;</a></h3><p>When testing for an <strong>increase</strong> of a population parameter $p$ with regard to a reference value $p_0$, the hypotheses look like this:</p>
+$$H_0: p \le p_0$$$$H_1: p \gt p_0$$<p>We call this a <strong>one-sided</strong> test.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-is-the-question-(hypothesis)?">1. What is the question (hypothesis)?<a class="anchor-link" href="#1.-What-is-the-question-(hypothesis)?">&#182;</a></h3><p>When testing for an <strong>decrease</strong> of a population parameter $p$ with regard to a reference value $p_0$, the hypotheses look like this:</p>
+$$H_0: p \ge p_0$$$$H_1: p \lt p_0$$<p>We call this a <strong>one-sided</strong> test.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-is-the-question-(hypothesis)?">1. What is the question (hypothesis)?<a class="anchor-link" href="#1.-What-is-the-question-(hypothesis)?">&#182;</a></h3><p>When testing for a <strong>change</strong> of a population parameter $p$ with regard to a reference value $p_0$, the hypotheses look like this:</p>
+$$H_0: p = p_0$$$$H_1: p \ne p_0$$<p>We call this a <strong>two-sided</strong> test.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:-Fuel-Consumption">Example: Fuel Consumption<a class="anchor-link" href="#Example:-Fuel-Consumption">&#182;</a></h3><p>A certain type of an engine currently in use has an average fuel consumption of 8 l/100 km.</p>
+<p>Claim: A new type engine has an average fuel consumption less than 8 l/100 km.</p>
+<p>$\mu_0 = 8 \text{l/100km}$ .</p>
+<p>$\mu \lt 8 \text{l/100km}$ ?</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:-Fuel-Consumption-(cont.)">Example: Fuel Consumption (cont.)<a class="anchor-link" href="#Example:-Fuel-Consumption-(cont.)">&#182;</a></h3><p>H0 refers to the status quo of the assumption to be tested, i.e. no change.</p>
+<p>H1 is the hypothesis that the researcher is trying to prove. It represents a significant change.</p>
+<ul>
+<li>$H_0: \mu \ge \mu_0 = 8 l/100km$</li>
+<li>$H_1: \mu \lt \mu_0 = 8 l/100km$</li>
+</ul>
+<p>We use a sample to check the hypotheses.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:-Fuel-Consumption-(cont.)">Example: Fuel Consumption (cont.)<a class="anchor-link" href="#Example:-Fuel-Consumption-(cont.)">&#182;</a></h3><p>The problem with samples.
+Population with a mean $\mu = 8 l/100 km$:</p>
 
 </div>
 </div>
@@ -14681,11 +14822,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">114</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">111</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">133</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">110</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.1</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.3</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">,</span> <span class="mf">8.7</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14693,7 +14833,7 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div><div class="fragment" >
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14701,21 +14841,129 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>$H_0: \mu_x = \mu_y$</li>
-<li>$H_1: \mu_x \neq \mu_y$</li>
+<li>$\bar{x} = 7.6$ for <code>sample = [7.5, 7.3, 8.0]</code></li>
+<li>$\bar{x} = 8.4$ for <code>sample = [8.7, 8.3, 8.2]</code></li>
 </ul>
 
 </div>
 </div>
 </div>
-</div></div></section><section >
+</div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="T-Test-with-Two-Independent-Samples">T-Test with Two Independent Samples<a class="anchor-link" href="#T-Test-with-Two-Independent-Samples">&#182;</a></h3>
+<h3 id="2.-Which-test-is-applicable?">2. Which test is applicable?<a class="anchor-link" href="#2.-Which-test-is-applicable?">&#182;</a></h3><p>Many statistical tests exist, but we will focus on two of them:</p>
+<ul>
+<li>Student's <strong>t-test</strong> for hypotheses about the mean $\mu$</li>
+<li><strong>Z-test</strong> for hypotheses about the proportion $\pi$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="When-to-use-Student's-t-test">When to use Student's t-test<a class="anchor-link" href="#When-to-use-Student's-t-test">&#182;</a></h4><p>The following hypotheses about the population mean $\mu$ and a reference value $\mu_0$ can be tested using Student's t-test:</p>
+<ul>
+<li>$H_1: \mu \lt \mu_0$ , i.e., the mean is less than the reference value; left-sided test</li>
+<li>$H_1: \mu \gt \mu_0$ , i.e., the mean is greater than the reference value; right-sided test</li>
+<li>$H_1: \mu \ne \mu_0$ , i.e., the mean is different from the reference value; two-sided test</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="When-to-use-Z-test-for-proportions">When to use Z-test for proportions<a class="anchor-link" href="#When-to-use-Z-test-for-proportions">&#182;</a></h4><p>The following hypotheses about a proportion $\pi$ and a reference value $\pi_0$ can be tested using the Z-test for proportions:</p>
+<ul>
+<li>$H_1: \pi \lt \pi_0$ , i.e., the proportion is less than the reference value; left-sided test</li>
+<li>$H_1: \pi \gt \pi_0$ , i.e., the proportion is greater than the reference value; right-sided test</li>
+<li>$H_1: \pi \ne \pi_0$ , i.e., the proportion is different from the reference value; two-sided test</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-How-to-perform-the-test?">3. How to perform the test?<a class="anchor-link" href="#3.-How-to-perform-the-test?">&#182;</a></h3><p>The general procedure is:</p>
+<ol>
+<li>Calculate a test statistics / summary statistics from the data</li>
+<li>Calculate a p-value from the test statistics</li>
+</ol>
+<p>The calculation of the test statistics is specific to the respective test.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="What-is-a-%22p-value%22?">What is a "p-value"?<a class="anchor-link" href="#What-is-a-%22p-value%22?">&#182;</a></h4><ul>
+<li>The test statistics is known to follow a certain theoretical distribution, e.g., the normal distribution.</li>
+<li>The &quot;p-value&quot; is<ul>
+<li>the <strong>probability</strong> of obtaining a sample resulting in a given test statistics <strong>under the condition</strong> that the null-hypothesis is correct, i.e., $\text{p-value} = P(t | H_0)$</li>
+<li>the <strong>probability</strong> of making an error when rejecting the null-hypothesis.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Calculating-the-p-value">Calculating the p-value<a class="anchor-link" href="#Calculating-the-p-value">&#182;</a></h4><ul>
+<li>The p-value is calculated based on the theoretical distribution of the test statistics.</li>
+<li>We use the <strong>inverse cumulative density function</strong> aka. <strong>survival function</strong> of the distribution, i.e.,</li>
+</ul>
+$$1 - CDF = SF$$<ul>
+<li>The p-value is calculated as</li>
+</ul>
+$$\text{p-value} = \begin{cases}
+SF(t)         &amp; \text{when left-sided}\\
+1 - SF(t)     &amp; \text{when right-sided}\\
+2 \cdot SF(t) &amp; \text{when two-sided} \\
+\end{cases}$$
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Calculating-the-p-value-(cont.)">Calculating the p-value (cont.)<a class="anchor-link" href="#Calculating-the-p-value-(cont.)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14724,10 +14972,70 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">));</span> <span class="kc">None</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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"
+class="
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Student's-t-test-for-means">Student's t-test for means<a class="anchor-link" href="#Student's-t-test-for-means">&#182;</a></h3><p>Calculating the test statistics for Student's t-test:</p>
+$$t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}$$<p>Calculate the p-value based on the t-distribution with $n - 1$ degrees of freedom.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_1samp</span>
+
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">popmean</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;less&#39;</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 
@@ -14744,13 +15052,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.07663322278868127</pre>
+<pre>0.5</pre>
 </div>
 
 </div>
@@ -14759,70 +15067,16 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section ><section >
+</div></section><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Example:-Test-Scores">Example: Test Scores<a class="anchor-link" href="#Example:-Test-Scores">&#182;</a></h3><p>Test scores for 20 students before and after a training program:</p>
+<h3 id="Z-test-for-proportions">Z-test for proportions<a class="anchor-link" href="#Z-test-for-proportions">&#182;</a></h3><p>Calculating the test statistics for proportions z-test:</p>
+$$z = (p - p_0) \cdot \sqrt{\frac{p_0 \cdot (1 - p_0)}{n}}$$<p>Calculate the p-value based on the normal distribution.</p>
 
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[78]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">38</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">74</span><span class="p">])</span>
-<span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">61</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Does the training improve in average the students scores? Use α = 5%</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>$H_0: \mu_1 \leq \mu_0$</li>
-<li>$H_1: \mu_1 &gt; \mu_0$</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="(Paired)-T-Test-with-Two-Related-Samples">(Paired) T-Test with Two Related Samples<a class="anchor-link" href="#(Paired)-T-Test-with-Two-Related-Samples">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14831,165 +15085,13 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[79]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">after</span><span class="p">,</span> <span class="n">before</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[79]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.025676121095572903</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Excursion:-Confidence-Interval-for-Difference-of-Means">Excursion: Confidence Interval for Difference of Means<a class="anchor-link" href="#Excursion:-Confidence-Interval-for-Difference-of-Means">&#182;</a></h3><p>Confidence interval:</p>
-$$ \bar{x}_1 - \bar{x}_2 \pm Z \cdot s $$<p>where $Z$ is the critical value and $s$ is the standard error:</p>
-$$ s = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}} $$
-</div>
-</div>
-</div>
-</div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">std_err</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">critical_value_t</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">ttest_ind_confint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># center of CI</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># mean sample size</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">std_err</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># standard error of the mean difference</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">critical_value_t</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">half_length</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">z</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">half_length</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">half_length</span><span class="p">)</span>
-
-<span class="n">ci</span> <span class="o">=</span> <span class="n">ttest_ind_confint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">ci</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(-13.402367156297982, 1.2595100134408437)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Example:-Production-Plants">Example: Production Plants<a class="anchor-link" href="#Example:-Production-Plants">&#182;</a></h3><p>Defective Items produced on two different production lines:</p>
-<ul>
-<li>A: 12 defectives in a batch of 200</li>
-</ul>
-$$12/200 = 0.06 = 6\%$$<ul>
-<li>B: 24 defectives in a batch of 300</li>
-</ul>
-$$24/300 = 0.08 = 8\%$$<p>Does B produce more defectives? Use $\alpha = 5\%$.</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>$H_0: \pi_B \leq \pi_A$</li>
-<li>$H_1: \pi_B &gt; \pi_A$</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Proportions-Test-with-Two-Samples">Proportions Test with Two Samples<a class="anchor-link" href="#Proportions-Test-with-Two-Samples">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[81]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportions_ztest</span>
 
-<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
-                               <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;larger&#39;</span><span class="p">)</span>
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                               <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 
@@ -15006,13 +15108,13 @@ $$24/300 = 0.08 = 8\%$$<p>Does B produce more defectives? Use $\alpha = 5\%$.</p
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[81]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.1983361310972807</pre>
+<pre>0.1485732651742352</pre>
 </div>
 
 </div>
@@ -15028,39 +15130,104 @@ $$24/300 = 0.08 = 8\%$$<p>Does B produce more defectives? Use $\alpha = 5\%$.</p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Excursion:-Confidence-Interval-for-Difference-of-Proportions">Excursion: Confidence Interval for Difference of Proportions<a class="anchor-link" href="#Excursion:-Confidence-Interval-for-Difference-of-Proportions">&#182;</a></h3><p>Confidence interval</p>
-$$ \hat{p_1} - \hat{p_2} \pm Z \cdot s $$<p>Where $Z$ is the critical value and the $s$ is the standard error:</p>
-$$ s = \sqrt{\frac{\hat{p_1} (1-\hat{p_1})}{n_1} + \frac{\hat{p_2} (1-\hat{p_2})}{n_2}}$$
+<h3 id="4.-How-to-interpret-the-result?">4. How to interpret the result?<a class="anchor-link" href="#4.-How-to-interpret-the-result?">&#182;</a></h3><p>Based on the p-value and the desired level of significance $\alpha$, we make a decision:</p>
+<table>
+<thead>
+<tr>
+  <th>p-value</th>
+  <th>$H_0$</th>
+  <th>$H_1$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$\lt \alpha$</td>
+  <td>reject</td>
+  <td>accept</td>
+</tr>
+<tr>
+  <td>$\ge \alpha$</td>
+  <td>accept</td>
+  <td>reject</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
-</div></section><section ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Errors-in-Making-Decisions">Errors in Making Decisions<a class="anchor-link" href="#Errors-in-Making-Decisions">&#182;</a></h4><p>Our test decision is ultimately based on the result of a sample.</p>
+<p>This <strong>can</strong> lead to two types of errors (wrong decisions) if the samples are biased:</p>
+<table>
+<thead>
+<tr>
+  <th>p-value</th>
+  <th>$H_0$</th>
+  <th>$H_1$</th>
+  <th>Possible error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$\lt \alpha$</td>
+  <td>reject</td>
+  <td>accept</td>
+  <td>Type I aka. $\alpha$  when $H_0$ is actually true</td>
+</tr>
+<tr>
+  <td>$\ge \alpha$</td>
+  <td>accept</td>
+  <td>reject</td>
+  <td>Type II aka. $\beta$ when $H_0$ is actually false</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section></section><section ><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Further-Examples">Further Examples<a class="anchor-link" href="#Further-Examples">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Test-for-Reduction-of-Mean-%CE%BC-of-a-Population">Test for Reduction of Mean &#956; of a Population<a class="anchor-link" href="#Test-for-Reduction-of-Mean-%CE%BC-of-a-Population">&#182;</a></h4><p>Sample of cars with the new engine:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">proportions_std_err</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">):</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="k">def</span> <span class="nf">critical_value_norm</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">proportions_ztest_confint</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span><span class="p">):</span>
-    <span class="n">p1</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">nobs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">-</span> <span class="n">p2</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">proportions_std_err</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">nobs</span><span class="p">)</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">critical_value_norm</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="n">half_length</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">z</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">half_length</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="n">half_length</span><span class="p">)</span>
-
-<span class="n">ci</span> <span class="o">=</span> <span class="n">proportions_ztest_confint</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">nobs</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="n">ci</span>
+<span class="n">new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">7.9</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">])</span>
+<span class="n">new</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15076,13 +15243,13 @@ $$ s = \sqrt{\frac{\hat{p_1} (1-\hat{p_1})}{n_1} + \frac{\hat{p_2} (1-\hat{p_2})
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(-0.02500810243477687, 0.06500810243477688)</pre>
+<pre>7.94</pre>
 </div>
 
 </div>
@@ -15091,32 +15258,350 @@ $$ s = \sqrt{\frac{\hat{p_1} (1-\hat{p_1})}{n_1} + \frac{\hat{p_2} (1-\hat{p_2})
 
 </div>
 
-</div></section></section><section ><section >
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Recap:-Hypothesis-Testing">Recap: Hypothesis Testing<a class="anchor-link" href="#Recap:-Hypothesis-Testing">&#182;</a></h3><ol>
-<li>Answer the following questions, then select appropriate test:</li>
-</ol>
+<p>Do we have, with this result of a sample of 10 cars, the proof of a significant reduction of the mean $\mu$ of all cars of this type?
+Level of significance $\alpha  = 5\%$.</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">new</span><span class="p">,</span> <span class="n">popmean</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;less&#39;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.08392532802853826</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$\text{p-value} \gt \alpha = 0.05$: $H_0$ <strong>can not</strong> be rejected.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example:-Mean-Lifespan-of-a-Product">Example: Mean Lifespan of a Product<a class="anchor-link" href="#Example:-Mean-Lifespan-of-a-Product">&#182;</a></h4><p>The lifespan of a product is approximately normally distributed with an average value of 50 months.
+By using a new material, we intend to increase the average lifespan of the product.
+What are the hypotheses? Level of significance $\alpha = 0.05$.</p>
 <ul>
-<li>One or two samples?</li>
-<li>Mean or proportion?</li>
-<li>If mean: independent or related populations?</li>
-<li>Test for increase, decrease or any change?</li>
+<li>$H_0: \mu \le \mu_0 = 50$</li>
+<li>$H_1: \mu \gt \mu_0 = 50$</li>
 </ul>
-<ol start="2">
-<li><p>If one sample, find reference value.</p>
-</li>
-<li><p>Execute test to find p-value and decide:</p>
-</li>
-</ol>
+
+</div>
+</div>
+</div>
+</div><div class="fragment" ><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">51</span><span class="p">]</span>
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">popmean</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.0024577593105012127</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$\text{p-value} \lt \alpha = 0.05$: $H_0$ <strong>can</strong> be rejected. Mean lifespan is greater than 50 months.</p>
+
+</div>
+</div>
+</div>
+</div></div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example:-Passengers">Example: Passengers<a class="anchor-link" href="#Example:-Passengers">&#182;</a></h4><p>In the past, an airport handled an average of 6,000 passengers per day.
+In order to ensure service quality on the one hand and to minimize costs on the other hand,
+we want to examine whether this average number has changed.
+Test with $\alpha = 5\%$.</p>
 <ul>
-<li>reject $H_0$ when $pval &lt; \alpha$</li>
-<li>do not reject $H_0$ when $pval \geq \alpha$</li>
+<li>$H_0: \mu = \mu_0 = 6000$</li>
+<li>$H_1: \mu \ne \mu_0 = 6000$</li>
 </ul>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6204</span> <span class="p">,</span> <span class="mi">6294</span> <span class="p">,</span> <span class="mi">6480</span> <span class="p">,</span> <span class="mi">6186</span> <span class="p">,</span> <span class="mi">6493</span> <span class="p">,</span> <span class="mi">5921</span> <span class="p">,</span> <span class="mi">6388</span> <span class="p">,</span> <span class="mi">6072</span><span class="p">]</span>
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_1samp</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">popmean</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.008625321343415048</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Example:-Test-of-Proportions-%CF%80">Example: Test of Proportions &#960;<a class="anchor-link" href="#Example:-Test-of-Proportions-%CF%80">&#182;</a></h4><p>The proportion of defective parts in a production was up to now 10%.
+We want to reduce the proportion of defective parts with a new production technology.
+In a sample of 200 parts from the new production, 16 defective parts were found.</p>
+$$p = 16 / 200 = 8\%$$<p>This is an indication of the reduction,
+but not yet proof of a significant reduction in the proportion of defective parts in the entire production. 
+Test with $\alpha = 5\%$.</p>
+<ul>
+<li>$H_0: \pi \ge \pi_0 = 10\%$</li>
+<li>$H_1: \pi \lt \pi_0 = 10\%$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Test-of-Proportions-%CF%80-with-Python">Test of Proportions &#960; with Python<a class="anchor-link" href="#Test-of-Proportions-%CF%80-with-Python">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.1485732651742352</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$\text{p-value} \gt \alpha = 0.05$: $H_0$ <strong>can not</strong> be rejected.</p>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Effect-of-Large-Sample-Sizes">Effect of Large Sample Sizes<a class="anchor-link" href="#Effect-of-Large-Sample-Sizes">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportions_ztest</span>
+
+<span class="n">stat</span><span class="p">,</span> <span class="n">pval</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">nobs</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.0004887873855964199</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>$\text{p-value} \lt \alpha = 0.05$: $H_0$ <strong>can</strong> be rejected.</p>
+<p>With a larger sample size we are able to show that the proportion of defective parts is less than 10%.</p>
 
 </div>
 </div>
