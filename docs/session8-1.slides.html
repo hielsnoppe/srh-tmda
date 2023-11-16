@@ -14772,7 +14772,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Student's-t-test-for-means-(two-samples)">Student's t-test for means (two samples)<a class="anchor-link" href="#Student's-t-test-for-means-(two-samples)">&#182;</a></h3><p>Calculating the test statistics for Student's t-test:</p>
+<h3 id="Student's-t-test-for-means-(two-independent-samples)">Student's t-test for means (two independent samples)<a class="anchor-link" href="#Student's-t-test-for-means-(two-independent-samples)">&#182;</a></h3><p>Calculating the test statistics for Student's t-test:</p>
 $$t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \cdot \sqrt{\frac{2}{n}}}$$<p>where:</p>
 $$s_p = \sqrt{\frac{s^2_1 + s^2_2}{2}}$$<p>Assumptions:</p>
 <ul>
@@ -14791,11 +14791,11 @@ $$s_p = \sqrt{\frac{s^2_1 + s^2_2}{2}}$$<p>Assumptions:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Student's-t-test-for-means-(two-samples)">Student's t-test for means (two samples)<a class="anchor-link" href="#Student's-t-test-for-means-(two-samples)">&#182;</a></h3><p>Calculating the test statistics for Student's t-test:</p>
+<h3 id="Student's-t-test-for-means-(two-independent-samples)">Student's t-test for means (two independent samples)<a class="anchor-link" href="#Student's-t-test-for-means-(two-independent-samples)">&#182;</a></h3><p>Calculating the test statistics for Student's t-test:</p>
 $$t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \cdot \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$$<p>where:</p>
 $$s_p = \sqrt{\frac{(n_1 - 1) \cdot s^2_1 + (n_2 - 1) \cdot s^2_2}{n_1 + n_2 - 2}}$$<p>Assumptions:</p>
 <ul>
-<li>Sample sizes are equal, i.e., $n_1 \ne n_2$</li>
+<li>Sample sizes are unequal, i.e., $n_1 \ne n_2$</li>
 <li>Variances are similar, i.e., $\frac{1}{2} \lt \frac{\sigma_1}{\sigma_2} \lt 2$</li>
 </ul>
 <p>Calculate the p-value based on the t-distribution with $n_1 + n_2 - 2$ degrees of freedom.</p>
@@ -14953,7 +14953,7 @@ $$t = \frac{\bar{x}_D - \mu_0}{s_D / \sqrt{n}}$$<p>Calculate the p-value based o
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">38</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">74</span><span class="p">])</span>
-<span class="n">after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">61</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+<span class="n">after</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">61</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
 </pre></div>
 
      </div>
